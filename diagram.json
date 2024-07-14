@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "author": "Artem Novikov <novartole@gmail.com>",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-nano",
+      "id": "nano",
+      "top": -81.6,
+      "left": -67.7,
+      "attrs": { "builder": "rust-nostd-avr" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -214.8,
+      "left": 4.2,
+      "attrs": { "color": "red", "flip": "1" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": 28.8,
+      "left": 31.58,
+      "rotate": 180,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "nano:GND.2", "led1:C", "black", [ "v0" ] ],
+    [ "nano:7", "pir1:OUT", "green", [ "v-19.2", "h124.8", "v105.6", "h-48.14" ] ],
+    [ "pir1:GND", "nano:GND.1", "black", [ "h-28.54", "v-28.8", "h38.4" ] ],
+    [ "nano:VIN", "pir1:VCC", "red", [ "v0" ] ],
+    [ "led1:A", "nano:5", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
